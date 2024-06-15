@@ -17,45 +17,45 @@ public class YutMusTests extends TestBase {
     void singerCardExistTest() {
         homePage.openPage()
                 .searchButtonClick()
-                .searchFieldWrite("Sting");
-        //.checkArtistCard("Sting");
+                .searchFieldWrite("Sting")
+                .checkArtistCard("Sting");
     }
-//
-//    @Test
-//    @DisplayName("Проверка отображения боковой панели с треками исполнителя.")
-//    @Tag("singer")
-//    void singerSideTrackPanelExistTest() {
-//        homePage.openPage()
-//                .searchButtonClick()
-//                .searchFieldWrite("Sting")
-//                .choiceArtistCard("Sting")
-//                .checkArtistSideBar();
-//    }
-//
-//    @Test
-//    @DisplayName("Проверка наличия треков в списке чарта.")
-//    @Tag("chart")
-//    void chartTracksExistTest() {
-//        chartPage.openPage()
-//                .checkFirstTrack();
-//    }
-//
-//    @Test
-//    @DisplayName("Проверка наличия кнопки Поделиться в окне чарта.")
-//    @Tag("chart")
-//    void chartShareButtonExistTest() {
-//        chartPage.openPage()
-//                .checkShareButton();
-//    }
-//
-//    @Test
-//    @DisplayName("Проверка наличия кнопки Поделиться Вконтакте при нажатии кнопки Поделиться.")
-//    @Tag("chart")
-//    void chartShareVkButtonExistTest() {
-//        chartPage.openPage()
-//                .clickShareButton()
-//                .checkShareVkButton();
-//    }
+
+    @Test
+    @DisplayName("Проверка отображения боковой панели с треками исполнителя.")
+    @Tag("singer")
+    void singerSideTrackPanelExistTest() {
+        homePage.openPage()
+                .searchButtonClick()
+                .searchFieldWrite("Sting")
+                .choiceArtistCard("Sting")
+                .checkArtistSideBar();
+    }
+
+    @Test
+    @DisplayName("Проверка наличия разделов в списке Рекомендуемых.")
+    @Tag("chart")
+    void chartTracksExistTest() {
+        chartPage.openPage()
+                .checkFirstTrack();
+    }
+
+    @Test
+    @DisplayName("Проверка наличия кнопки Найстройки на странице Рекомендуемое.")
+    @Tag("chart")
+    void chartSettingsButtonExistTest() {
+        chartPage.openPage()
+                .checkSettingsButton();
+    }
+
+    @Test
+    @DisplayName("Проверка наличия разделов в меню Настройки.")
+    @Tag("chart")
+    void chartSettingsMenuExistTest() {
+        chartPage.openPage()
+                .clickSettingsButton()
+                .checkSettingsItem();
+    }
 
 
-    }
+}

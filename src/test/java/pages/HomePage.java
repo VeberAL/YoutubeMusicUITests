@@ -11,13 +11,11 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
-    private final SelenideElement closePromoButton = $(".pay-promo-close-btn"),
-            searchButton = $(".ytmusic-search-box"),
-            searchField = $("input.ytmusic-search-box"),
-            artistSidebarWindow = $(".sidebar-artist");
-    private final ElementsCollection artistInfoWindow = $$(".artist__content");
+    private final SelenideElement searchField = $("input.ytmusic-search-box"),
+            artistSidebarWindow = $(".undercards-container");
+    private final ElementsCollection artistInfoWindow = $$(".main-card-content-container");
 
-    @Step("Открытие главной страницы сайта.")
+    @Step("Открытие главной страницы сайта и соглашение принять cookie (при появлении).")
     public HomePage openPage(){
         open("/");
         if ($(byText("Accept all")).exists()) {

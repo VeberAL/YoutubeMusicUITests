@@ -13,14 +13,16 @@ import static com.codeborne.selenide.Selenide.*;
 public class HomePage {
     private final SelenideElement closePromoButton = $(".pay-promo-close-btn"),
             searchButton = $(".ytmusic-search-box"),
-            searchField = $(".ytmusic-search-box"),
+            searchField = $("input.ytmusic-search-box"),
             artistSidebarWindow = $(".sidebar-artist");
     private final ElementsCollection artistInfoWindow = $$(".artist__content");
 
     @Step("Открытие главной страницы сайта.")
     public HomePage openPage(){
         open("/");
-        $(byText("Accept all")).click();
+        if ($(byText("Accept all")).exists()) {
+            $(byText("Accept all")).click();
+        }
         return this;
     }
 

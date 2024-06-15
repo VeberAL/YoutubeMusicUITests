@@ -18,7 +18,7 @@ public class YutMusTests extends TestBase {
         homePage.openPage()
                 .searchButtonClick()
                 .searchFieldWrite("Sting");
-                //.checkArtistCard("Sting");
+        //.checkArtistCard("Sting");
     }
 //
 //    @Test
@@ -58,4 +58,4 @@ public class YutMusTests extends TestBase {
 //    }
 
 
-}
+    }

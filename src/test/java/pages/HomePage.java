@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Condition.exist;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class HomePage {
@@ -19,6 +20,7 @@ public class HomePage {
     @Step("Открытие главной страницы сайта.")
     public HomePage openPage(){
         open("/");
+        $(byText("Accept all")).click();
         return this;
     }
 

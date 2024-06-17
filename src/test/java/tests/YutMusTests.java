@@ -46,7 +46,7 @@ public class YutMusTests extends TestBase {
     }
 
     @Test
-    @DisplayName("проверка отображения карусели рекомендуемых треков.")
+    @DisplayName("Проверка отображения карусели рекомендуемых треков.")
     @Tag("chart")
     void chartCarouselExistTest() {
         homePage.openPage()

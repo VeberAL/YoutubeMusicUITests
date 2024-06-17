@@ -16,6 +16,7 @@ import java.util.Map;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+
         Configuration.timeout = 4000;
         Configuration.baseUrl = System.getProperty("baseUrl");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");

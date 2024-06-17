@@ -28,8 +28,29 @@ public class YutMusTests extends TestBase {
         homePage.openPage()
                 .searchButtonClick()
                 .searchFieldWrite("Sting")
-                .choiceArtistCard("Sting")
+                .choiceArtistCard()
                 .checkArtistSideBar();
+    }
+
+    @Test
+    @DisplayName("Проверка функционирования кнопки Поделиться в карточке исполнителя.")
+    @Tag("singer")
+    void singerCardShareButtonTest() {
+        homePage.openPage()
+                .searchButtonClick()
+                .searchFieldWrite("Sting")
+                .choiceArtistCard()
+                .clickShareButtonInArtisCard()
+                .clickShareButton()
+                .checkShareWindowInArtisCard();
+    }
+
+    @Test
+    @DisplayName("проверка отображения карусели рекомендуемых треков.")
+    @Tag("chart")
+    void chartCarouselExistTest() {
+        homePage.openPage()
+                .checkChartCarousel();
     }
 
     @Test

@@ -1,35 +1,25 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import config.WebConfig;
+import config.WebDriverProvider;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.Map;
 
 public class TestBase {
+    private static WebConfig config;
+
     @BeforeAll
     static void beforeAll() {
-
-        Configuration.timeout = 4000;
-        Configuration.baseUrl = System.getProperty("baseUrl");
-        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = System.getProperty("remote");
-        Configuration.browser = System.getProperty("browser");
-        Configuration.browserVersion = System.getProperty("browserVersion");
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("selenoid:options", Map.<String, Object>of(
-                "enableVNC", true,
-                "enableVideo", true
-        ));
-        Configuration.browserCapabilities = capabilities;
+        config = ConfigFactory.create(WebConfig.class, System.getProperties());
+        WebDriverProvider webConfig = new WebDriverProvider(config);
+        webConfig.setUp();
     }
 
     @BeforeEach
@@ -44,10 +34,13 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+        if (config.isRemote()) {
+            Attach.addVideo();
+        }
     }
 
     @AfterAll
     static void afterAll() {
-        Selenide.closeWindow();
+        Selenide.closeWebDriver();
     }
 }

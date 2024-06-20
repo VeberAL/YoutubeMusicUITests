@@ -64,7 +64,7 @@
 ---
 <a id="allureReport"></a>
 
-## [Allure](https://jenkins.autotests.cloud/job/VeberUIDiplom/8/allure/) отчет
+## [Allure](https://jenkins.autotests.cloud/job/VeberUIDiplom/12/allure/) отчет
 
 ### Главная страница отчета
 
@@ -76,6 +76,12 @@
 
 <p align="center">
 <img src="media/alluresuits.png" alt="Test Case">
+</p>
+
+### Графики
+
+<p align="center">
+<img src="media/alluregraph.png" alt="Test Case">
 </p>
 
 ---

@@ -11,7 +11,7 @@ import pages.ChartPage;
 import pages.HomePage;
 
 @Tag("chart")
-public class YutMusChartTests extends TestBase {
+public class ChartTests extends TestBase {
     HomePage homePage = new HomePage();
     ChartPage chartPage = new ChartPage();
 

@@ -11,13 +11,15 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import pages.ArtistPage;
 import pages.HomePage;
+import pages.SearchPage;
 import utils.RandomUtils;
 
 
 @Tag("singer")
-public class YutMusSingerTests extends TestBase {
+public class SingerTests extends TestBase {
     HomePage homePage = new HomePage();
     ArtistPage artistPage = new ArtistPage();
+    SearchPage searchPage = new SearchPage();
     RandomUtils randomUtils = new RandomUtils();
     String singerName = randomUtils.getSingerName();
 
@@ -30,7 +32,7 @@ public class YutMusSingerTests extends TestBase {
         homePage.openPage()
                 .searchButtonClick()
                 .enterTextInTheSearchField(singerName);
-        artistPage.checkArtistCard(singerName);
+        searchPage.checkArtistCard(singerName);
     }
 
 
@@ -44,7 +46,7 @@ public class YutMusSingerTests extends TestBase {
         homePage.openPage()
                 .searchButtonClick()
                 .enterTextInTheSearchField(singer);
-        artistPage.selectArtistCard()
+        searchPage.selectArtistCard()
                 .checkArtistSideBar();
     }
 
@@ -57,8 +59,8 @@ public class YutMusSingerTests extends TestBase {
         homePage.openPage()
                 .searchButtonClick()
                 .enterTextInTheSearchField(singerName);
-        artistPage.selectArtistCard()
-                .clickShareButtonInArtisCard()
+        searchPage.selectArtistCard();
+        artistPage.clickShareButtonInArtisCard()
                 .clickShareButton()
                 .checkShareWindowInArtisCard();
     }
